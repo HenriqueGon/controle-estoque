@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.br.api.company.model.Company;
@@ -18,6 +18,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String name;
 	
 	@Column(name = "federal_document", length = 14, unique = true, nullable = false)
@@ -32,13 +33,14 @@ public class User {
 	// E - Employee
 	// M - Manager
 	// A - Admin
-	@Column(length = 1)
+	@Column(length = 1, nullable = false)
 	private char type;
 	
 	@Column(length = 30)
 	private String email;
 	
-	@OneToMany
+	@ManyToOne
+	@Column(nullable = false)
 	private Company company;
 
 	public Long getId() {
