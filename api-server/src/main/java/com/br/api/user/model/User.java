@@ -40,7 +40,6 @@ public class User {
 	private String email;
 	
 	@ManyToOne
-	@Column(nullable = false)
 	private Company company;
 
 	public Long getId() {
