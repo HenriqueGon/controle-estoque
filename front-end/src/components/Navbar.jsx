@@ -4,9 +4,11 @@ const Navbar = (props) => {
   return (
     <div>
       <div className='navbar'>
-        <Link to='#' className='logout'>
-          <i className='fas fa-user'></i>
-        </Link>
+        <div className='itens'>
+          <Link to='/login'>
+            <i className='fas fa-user-circle'></i>
+          </Link>
+        </div>
       </div>
 
       <nav className='nav-menu'>
@@ -18,7 +20,7 @@ const Navbar = (props) => {
           {props.data ? props.data.map((item, index) => {
             return (
               <li key={index}
-                className={item.className}>
+                className='nav-text'>
                   <Link to={item.path}>
                     <i className={item.icon}></i>
                     <span> {item.title} </span>
